@@ -29,7 +29,7 @@ function searchText(text){
 }
   return (
     <div className="App">
-      <input className={styles.search} placeholder='Search for countries..' onChange={(e)=>{searchText(e.target.value)}}/>
+      <input type="text" className={styles.search} placeholder='Search for countries..' onChange={(e)=>{searchText(e.target.value)}}/>
       <div className={styles.flags}>
         {data.map((flagData)=>(<Card data = {flagData}/>))}
         </div>
