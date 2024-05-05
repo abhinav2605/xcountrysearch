@@ -9,8 +9,13 @@ function App() {
   const [data,setData]=useState([]);
 useEffect(()=>{
   (async ()=>{
-    var resp = await axios.get("https://restcountries.com/v3.1/all");
+    try {
+      var resp = await axios.get("https://restcountries.com/v3.1/all");
     setData(resp.data)
+    } catch (error) {
+      console.error(error)
+    }
+    
     //console.log(data)
   })();
 })
@@ -22,7 +27,7 @@ function filterSearch(element)
 
 function searchText(text){
   data.filter(filterSearch);
-  //data.filter((country)=>{return country.indexOf(text)!=-1})
+  //data.filter((country)=>{return country.indexOf(text)!=-1})   
   console.log(data)
   //data.filter((e)=>{})
   
